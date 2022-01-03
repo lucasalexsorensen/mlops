@@ -30,7 +30,7 @@ class MyAwesomeModel(nn.Module):
 
 def fit(parser: ArgumentParser, model, data: DataLoader):
     parser.add_argument('--epochs', default=10, type=int)
-    parser.add_argument('--lr', default=0.001)
+    parser.add_argument('--lr', default=0.001, type=float)
     args = parser.parse_args(sys.argv[2:])
 
     optimizer = Adam(model.parameters(), lr=args.lr)
