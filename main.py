@@ -1,10 +1,9 @@
 import argparse
 import sys
 
-import torch
-
+from torch import load, save
 from data import mnist
-from model import MyAwesomeModel, fit
+from model import MyAwesomeModel, fit, val
 
 
 class TrainOREvaluate(object):
@@ -33,35 +32,22 @@ class TrainOREvaluate(object):
 
         model = MyAwesomeModel()
         fit(parser, model, train_set)
-        torch.save(model.state_dict(), 'model.pth')
+        save(model.state_dict(), 'model.pth')
 
         
     def evaluate(self):
         print("Evaluating until hitting the ceiling")
         parser = argparse.ArgumentParser(description='Training arguments')
         parser.add_argument('load_model_from', default="")
-        # add any additional argument that you want
         args = parser.parse_args(sys.argv[2:])
         print(args)
         
-        # TODO: Implement evaluation logic here
-        weights = torch.load(args.load_model_from)
+        weights = load(args.load_model_from)
         model = MyAwesomeModel()
         model.load_state_dict(weights)
 
-        model.eval()
-        _, test_set = mnist()
-        with torch.no_grad():
-            correct = 0
-            total = 0
-            for images, labels in test_set:
-                images = images.view(images.shape[0], -1)
-                ps = model(images)
-                top_p, top_class = ps.topk(1, dim=1)
-                equals = top_class == labels.view(*top_class.shape)
-                total += images.shape[0]
-                correct += torch.sum(equals)
-        accuracy = float(correct) / float(total)
+        _,test_set = mnist()
+        accuracy = val(model, test_set)
         print(f'Accuracy: {accuracy*100}%')
 
  

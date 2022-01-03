@@ -3,6 +3,7 @@ from torch import nn, optim
 import torch.nn.functional as F
 from torch.utils.data.dataloader import DataLoader
 from torch.optim import Adam
+import torch
 import torch.nn as nn
 import sys
 
@@ -52,3 +53,18 @@ def fit(parser: ArgumentParser, model, data: DataLoader):
 
 
     return model
+
+def val(model, data: DataLoader):
+    model.eval()
+    with torch.no_grad():
+        correct = 0
+        total = 0
+        for images, labels in data:
+            images = images.view(images.shape[0], -1)
+            ps = model(images)
+            top_p, top_class = ps.topk(1, dim=1)
+            equals = top_class == labels.view(*top_class.shape)
+            total += images.shape[0]
+            correct += torch.sum(equals)
+    accuracy = float(correct) / float(total)
+    return accuracy
