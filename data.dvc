@@ -1,0 +1,12 @@
+md5: c24f00e4f390a682c0bc176ae94864bc
+frozen: true
+deps:
+- md5: f61bca7e8de841014defc193fb49d508.dir
+  size: 417887308
+  nfiles: 1706
+  path: gdrive://1q4CS5Nueaq7_oglsMAcZwHme11MJth9-
+outs:
+- md5: 5dddf11e1254a0dd653b42aeb8a4a57b.dir
+  size: 417887308
+  nfiles: 1706
+  path: data
