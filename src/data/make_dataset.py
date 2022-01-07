@@ -22,8 +22,7 @@ def main(input_filepath, output_filepath):
     os.makedirs('%s/images' % output_filepath, exist_ok=True)
     for file in tqdm(input_images):
         im = Image.open(file)
-        im.resize((256,256))
-        im.save('%s/images/%s' % (output_filepath, os.path.basename(file)))
+        im.resize((256,256)).save('%s/images/%s' % (output_filepath, os.path.basename(file)))
     
     input_labels = glob('%s/annotations/*.xml' % input_filepath)
     os.makedirs('%s/annotations' % output_filepath, exist_ok=True)
