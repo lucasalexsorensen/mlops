@@ -3,7 +3,11 @@ import click
 import logging
 from pathlib import Path
 from dotenv import find_dotenv, load_dotenv
-
+from PIL import Image
+from glob import glob
+from tqdm import tqdm
+import os
+import re
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
@@ -14,6 +18,19 @@ def main(input_filepath, output_filepath):
     """
     logger = logging.getLogger(__name__)
     logger.info('making final data set from raw data')
+    input_images = glob('%s/images/*.png' % input_filepath)
+    os.makedirs('%s/images' % output_filepath, exist_ok=True)
+    for file in tqdm(input_images):
+        im = Image.open(file)
+        im.resize((256,256))
+        im.save('%s/images/%s' % (output_filepath, os.path.basename(file)))
+    
+    input_labels = glob('%s/annotations/*.xml' % input_filepath)
+    os.makedirs('%s/annotations' % output_filepath, exist_ok=True)
+    for file in tqdm(input_labels):
+        text = open(file).read()
+        label = int(bool(re.search(r"<name>without_mask</name>", text)))
+        open('%s/annotations/%s' % (output_filepath, os.path.basename(file)), 'w').write('%s' % label)
 
 
 if __name__ == '__main__':
