@@ -29,7 +29,7 @@ def main(input_filepath, output_filepath):
     for file in tqdm(input_labels):
         text = open(file).read()
         label = int(bool(re.search(r"<name>without_mask</name>", text)))
-        open('%s/annotations/%s' % (output_filepath, os.path.basename(file)), 'w').write('%s' % label)
+        open('%s/annotations/%s' % (output_filepath, os.path.basename(file).replace('.xml', '.txt')), 'w').write('%s' % label)
 
 
 if __name__ == '__main__':
