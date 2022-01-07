@@ -18,19 +18,15 @@ def main(input_filepath, output_filepath):
     """
     logger = logging.getLogger(__name__)
     logger.info('making final data set from raw data')
-    input_images = glob('%s/images/*.png' % input_filepath)
-    os.makedirs('%s/images' % output_filepath, exist_ok=True)
-    for file in tqdm(input_images):
-        im = Image.open(file)
-        im.resize((256,256)).save('%s/images/%s' % (output_filepath, os.path.basename(file)))
-    
-    input_labels = glob('%s/annotations/*.xml' % input_filepath)
-    os.makedirs('%s/annotations' % output_filepath, exist_ok=True)
-    for file in tqdm(input_labels):
-        text = open(file).read()
-        label = int(bool(re.search(r"<name>without_mask</name>", text)))
-        open('%s/annotations/%s' % (output_filepath, os.path.basename(file).replace('.xml', '.txt')), 'w').write('%s' % label)
 
+    for s in ['train', 'test']:
+        for cs in ['with_mask', 'without_mask']:
+            c = '%s/%s' % (s, cs)
+            input_images = glob('%s/%s/*.*' % (input_filepath, c))
+            os.makedirs('%s/%s' % (output_filepath, c), exist_ok=True)
+            for file in tqdm(input_images):
+                im = Image.open(file)
+                im.resize((64,64)).save('%s/%s/%s' % (output_filepath, c, os.path.basename(file).replace('jpg', 'png')))
 
 if __name__ == '__main__':
     log_fmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

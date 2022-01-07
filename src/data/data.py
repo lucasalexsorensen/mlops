@@ -1,37 +1,31 @@
 from typing import Tuple
 from torch.utils.data import Dataset, DataLoader
-from sklearn.model_selection import train_test_split
 from glob import glob
 from torch import Tensor
+import torch
 from torchvision.io import read_image
-from torchvision.transforms import ToTensor
-import re
+from torchvision.io.image import ImageReadMode
+import random
 
 
 class MaskDataset(Dataset):
-    def __init__(self, root_dir: str, split: str):
-        assert split in ["train", "test"]
+    def __init__(self, root_dir: str,):
+        # assert split in ["train", "test"]
         self.root_dir = root_dir
-        images = glob("%s/images/*.png" % root_dir)
-        labels = glob("%s/annotations/*.xml" % root_dir)
-        assert len(images) == len(labels)
-        images_train, images_test, labels_train, labels_test = train_test_split(
-            images, labels, test_size=0.3, random_state=1337, shuffle=True
-        )
-        if split == "train":
-            self.images = images_train
-            self.labels = labels_train
-        elif split == "test":
-            self.images = images_test
-            self.labels = labels_test
+        pairs = []
+        pairs += [(True, f) for f in glob("%s/with_mask/*.png" % root_dir)]
+        pairs += [(False, f) for f in glob("%s/without_mask/*.png" % root_dir)]
+        random.seed(1337)
+        random.shuffle(pairs)
+        self.pairs = pairs
 
     def __len__(self):
-        return len(self.images)
+        return len(self.pairs)
 
     def __getitem__(self, index: int) -> Tuple[Tensor, int]:
-        image = read_image(self.images[index])
-        label = int(
-            bool(re.search(r"<name>with_mask<\/name>", open(self.labels[index]).read()))
-        )
+        label, im_path = self.pairs[index]
+        image = read_image(im_path, mode=ImageReadMode.RGB).float() / 255
+        label_v = [0,0]
+        label_v[label] = 1
 
-        return image, label
+        return image, torch.tensor(label_v).float()
