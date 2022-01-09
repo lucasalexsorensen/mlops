@@ -66,7 +66,7 @@ def main():
         ),
         K.contrib.ClassificationHead(embed_size=config.embed_dim, num_classes=2),
     ).to(device)
-    criterion = nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr)
 
     mode = "min"
