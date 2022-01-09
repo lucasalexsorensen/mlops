@@ -1,4 +1,6 @@
-from ..data import MaskDataset
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'data'))
+from data import MaskDataset
 from torch.utils.data import DataLoader
 import kornia as K
 from kornia.x import ImageClassifierTrainer, ModelCheckpoint, Configuration
