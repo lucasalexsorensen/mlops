@@ -1,11 +1,35 @@
 program: src/models/train_model.py
 method: bayes
+project: mlops
 metric:
   name: val_loss
   goal: minimize
+early_terminate:
+  type: hyperband
+  min_iter: 3
 parameters:
-  learning_rate:
+  lr:
     min: 0.0001
     max: 0.1
-  optimizer:
-    values: ["adam", "sgd"]
+  batch_size:
+    min: 4
+    max: 64
+  embed_dim:
+    min: 16
+    max: 856
+  patch_size:
+    min: 8
+    max: 32
+  depth:
+    min: 2
+    max: 20
+  num_heads:
+    min: 2
+    max: 20
+  dropout_attn:
+    min: 0.0
+    max: 0.75
+  dropout_rate:
+    min: 0.0
+    max: 0.75
+  
