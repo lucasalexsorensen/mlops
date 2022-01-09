@@ -1,5 +1,5 @@
 import sys, os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'data'))
+sys.path.append(os.path.dirname(__file__) + '/../data')
 from data import MaskDataset
 from torch.utils.data import DataLoader
 import kornia as K
@@ -13,32 +13,37 @@ import torch.nn.functional as F
 from torchvision.transforms import ToTensor
 from torchsummary import summary
 
-
 if __name__ == '__main__':
-    wandb.init(project='mlops')
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print('USING DEVICE', device)
 
-    num_epochs = 50
-    lr = 1e-4
-    embed_dim = 256
+    hyperparameter_defaults = dict(
+    embed_dim = 256,
+    batch_size = 32,
+    learning_rate = 1e-4,
+    dropout_rate = 0.4,
+    dropout_attn = 0.1,
+    patch_size = 8,
+    num_epochs = 30
+    )
+    
+    wandb.init(config=hyperparameter_defaults, project="mlops")
+    config = wandb.config
 
-    batch_size = 32
-
-    train_set = MaskDataset(root_dir="data/processed/train")
-    val_set = MaskDataset(root_dir="data/processed/test")
-    train_loader = DataLoader(train_set, batch_size=batch_size)
-    val_loader = DataLoader(val_set, batch_size=batch_size)
+    train_set = MaskDataset(root_dir="../../data/processed/train")
+    val_set = MaskDataset(root_dir="../../data/processed/test")
+    train_loader = DataLoader(train_set, batch_size=config.batch_size)
+    val_loader = DataLoader(val_set, batch_size=config.batch_size)
 
     model = nn.Sequential(
-    K.contrib.VisionTransformer(image_size=64, dropout_attn=0.1, dropout_rate=0.4, embed_dim=embed_dim, patch_size=8),
-    K.contrib.ClassificationHead(embed_size=embed_dim, num_classes=2),
+    K.contrib.VisionTransformer(image_size=64, dropout_attn=config.dropout_attn, dropout_rate=config.dropout_rate, embed_dim=config.embed_dim, patch_size=config.patch_size),
+    K.contrib.ClassificationHead(embed_size=config.embed_dim, num_classes=2),
     ).to(device)
     summary(model, input_size=(3,64,64))
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.AdamW(model.parameters(), lr=lr)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=config.learning_rate)
 
     _augmentations = nn.Sequential(
         K.augmentation.RandomHorizontalFlip(p=0.75),
@@ -51,7 +56,7 @@ if __name__ == '__main__':
         ),
     )
 
-    for epoch in range(num_epochs):
+    for epoch in range(config.num_epochs):
         print('========= EPOCH %d =========' % epoch)
         epoch_loss = 0.0
         model.train()
