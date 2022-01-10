@@ -18,7 +18,7 @@ import torchmetrics
 
 def main():
     parser = argparse.ArgumentParser(description="Script for fitting model")
-    parser.add_argument("--lr", default=0.0001, type=float)
+    parser.add_argument("--lr", default=0.00015, type=float)
     parser.add_argument("--batch_size", default=32, type=int)
     parser.add_argument("--embed_dim", default=128, type=int)
     parser.add_argument("--patch_size", default=8, type=int)
