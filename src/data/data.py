@@ -11,8 +11,9 @@ import random
 class MaskDataset(Dataset):
     def __init__(self, root_dir: str,):
         # assert split in ["train", "test"]
-        self.root_dir = root_dir.title()
+        self.root_dir = root_dir
         pairs = []
+        print('globbing', glob("%s/Mask/*.png" % root_dir))
         pairs += [(True, f) for f in glob("%s/Mask/*.png" % root_dir)]
         pairs += [(False, f) for f in glob("%s/Non Mask/*.png" % root_dir)]
         random.seed(1337)
