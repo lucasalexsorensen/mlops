@@ -27,7 +27,8 @@ jobs:
         pytest
     - name: Pull data/cached steps
       run: |
-        export GOOGLE_APPLICATION_CREDENTIALS=${{secrets.GOOGLE_APPLICATION_CREDENTIALS}}
+        echo ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}} > key.json
+        export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
         python -m dvc update data/*.dvc
         python -m dvc pull
     - name: Run pipeline
