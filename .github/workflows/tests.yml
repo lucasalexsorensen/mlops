@@ -30,9 +30,9 @@ jobs:
       run: |
         echo ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}} > key.json
         export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
-        echo ${GOOGLE_APPLICATION_CREDENTIALS}
-        python -m dvc update data/*.dvc
-        python -m dvc pull
+        cat ${GOOGLE_APPLICATION_CREDENTIALS}
+        dvc update data/*.dvc
+        dvc pull
     - name: Run pipeline
       run: |
-        python -m dvc repro
+        dvc repro
