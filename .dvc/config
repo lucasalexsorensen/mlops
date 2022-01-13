@@ -1,7 +1,0 @@
-[core]
-    remote = remote_storage
-    autostage = true
-['remote "storage"']
-    url = gdrive://1q4CS5Nueaq7_oglsMAcZwHme11MJth9-
-['remote "remote_storage"']
-    url = gs://data-bucket-mask-no-mask/
