@@ -19,8 +19,8 @@ def main(input_filepath, output_filepath):
     logger = logging.getLogger(__name__)
     logger.info('making final data set from raw data')
 
-    for s in ['train', 'test']:
-        for cs in ['with_mask', 'without_mask']:
+    for s in ['Train', 'Test']:
+        for cs in ['Mask', 'Non Mask']:
             c = '%s/%s' % (s, cs)
             input_images = glob('%s/%s/*.*' % (input_filepath, c))
             os.makedirs('%s/%s' % (output_filepath, c), exist_ok=True)
