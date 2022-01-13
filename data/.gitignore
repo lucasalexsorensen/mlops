@@ -1,0 +1,6 @@
+/raw.zip
+**/*.jpg
+**/*.png
+**/*.zip
+/raw
+/processed

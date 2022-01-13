@@ -1,0 +1,73 @@
+schema: '2.0'
+stages:
+  unzip_data:
+    cmd: unzip -qq data/raw.zip -d data/raw
+    deps:
+    - path: data/raw.zip
+      md5: f377913605f3e6e7d4a00773709e8624
+      size: 221464048
+    outs:
+    - path: data/raw
+      md5: c3c37fdb86b6b22494d53ed99bb35491.dir
+      size: 228519486
+      nfiles: 1009
+  prepare_data:
+    cmd: python -m src.data.make_dataset data/raw data/processed
+    deps:
+    - path: data/raw
+      md5: c3c37fdb86b6b22494d53ed99bb35491.dir
+      size: 228519486
+      nfiles: 1009
+    - path: src/data/make_dataset.py
+      md5: e9e3f204dfe3c6b639c86bd55b96bdb5
+      size: 1662
+    outs:
+    - path: data/processed
+      md5: 6950ca417e0d0c7095d73bdfa1df0e8a.dir
+      size: 8086239
+      nfiles: 1009
+  fit_model:
+    cmd: python -m src.models.train_model data/processed/train data/processed/validation
+      outputs/model.pth
+    deps:
+    - path: data/processed/train
+      md5: fc0dbd90486ac4f17ea9d0b0ba1b1098.dir
+      size: 5254924
+      nfiles: 656
+    - path: data/processed/validation
+      md5: f733c0b2deb5beab16c2abd35c65360e.dir
+      size: 2459544
+      nfiles: 306
+    - path: src/data/data.py
+      md5: b3d82b2fb261bd32f5d4b99afa604638
+      size: 1015
+    - path: src/models/model.py
+      md5: 385b9ec7588d203facac83f495c77090
+      size: 863
+    - path: src/models/train_model.py
+      md5: 0d8786b38af9c7d8bbbb4d2b1c4bbfa4
+      size: 3992
+    outs:
+    - path: outputs/model.pth
+      md5: dffc4ae5c5c7bd5e62a9e0c3401a06e5
+      size: 6411688
+  evaluate_model:
+    cmd: python -m src.models.predict_model outputs/model.pth data/processed/test
+    deps:
+    - path: data/processed/test
+      md5: fe9b7ec934777cc04987749857ccd938.dir
+      size: 371771
+      nfiles: 47
+    - path: outputs/model.pth
+      md5: dffc4ae5c5c7bd5e62a9e0c3401a06e5
+      size: 6411688
+    - path: src/models/model.py
+      md5: 385b9ec7588d203facac83f495c77090
+      size: 863
+    - path: src/models/predict_model.py
+      md5: 8670f31cdab68ff83b68c4f1331f433d
+      size: 1504
+    outs:
+    - path: outputs/metrics.json
+      md5: 8c84e222798254d31cf1197a9c6e5521
+      size: 37

@@ -1,0 +1,38 @@
+stages:
+  unzip_data:
+    cmd: unzip -qq data/raw.zip -d data/raw
+    deps:
+      - data/raw.zip
+    outs:
+      - data/raw
+
+  prepare_data:
+    cmd: python -m src.data.make_dataset data/raw data/processed
+    deps:
+      - data/raw
+      - src/data/make_dataset.py
+    outs:
+      - data/processed
+  
+  fit_model:
+    cmd: python -m src.models.train_model data/processed/train data/processed/validation outputs/model.pth
+    deps:
+      - data/processed/train
+      - data/processed/validation
+      - src/models/model.py
+      - src/models/train_model.py
+      - src/data/data.py
+    outs:
+      - outputs/model.pth
+
+  evaluate_model:
+    cmd: python -m src.models.predict_model outputs/model.pth data/processed/test
+    deps:
+      - data/processed/test
+      - outputs/model.pth
+      - src/models/model.py
+      - src/models/predict_model.py
+    metrics:
+      - outputs/metrics.json:
+          cache: false
+    

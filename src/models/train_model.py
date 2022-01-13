@@ -1,7 +1,4 @@
-import sys, os
-
-sys.path.append(os.path.dirname(__file__) + "/../data")
-from data import MaskDataset
+from ..data import MaskDataset
 from torch.utils.data import DataLoader
 import kornia as K
 import torch.nn as nn
@@ -18,14 +15,17 @@ import torchmetrics
 
 def main():
     parser = argparse.ArgumentParser(description="Script for fitting model")
+    parser.add_argument("train_data", type=str)
+    parser.add_argument("val_data", type=str)
+    parser.add_argument("output_path", type=str)
     parser.add_argument("--lr", default=0.00015, type=float)
-    parser.add_argument("--batch_size", default=32, type=int)
-    parser.add_argument("--embed_dim", default=128, type=int)
-    parser.add_argument("--patch_size", default=8, type=int)
-    parser.add_argument("--depth", default=12, type=int)
-    parser.add_argument("--num_heads", default=12, type=int)
-    parser.add_argument("--dropout_attn", default=0.0, type=float)
-    parser.add_argument("--dropout_rate", default=0.4, type=float)
+    parser.add_argument("--batch_size", default=4, type=int)
+    parser.add_argument("--embed_dim", default=225, type=int)
+    parser.add_argument("--patch_size", default=4, type=int)
+    parser.add_argument("--depth", default=5, type=int)
+    parser.add_argument("--num_heads", default=16, type=int)
+    parser.add_argument("--dropout_attn", default=0.2356, type=float)
+    parser.add_argument("--dropout_rate", default=0.1056, type=float)
     args = parser.parse_args()
     wandb.init(project="mlops", job_type="train_model", config=args)
     config = wandb.config
@@ -34,8 +34,8 @@ def main():
     print("USING DEVICE", device)
 
     # num_epochs = 50
-    train_set = MaskDataset(root_dir="data/processed/train")
-    val_set = MaskDataset(root_dir="data/processed/test")
+    train_set = MaskDataset(root_dir=args.train_data)
+    val_set = MaskDataset(root_dir=args.val_data)
     train_loader = DataLoader(train_set, batch_size=config.batch_size, shuffle=True)
     val_loader = DataLoader(val_set, batch_size=config.batch_size, shuffle=True)
 
@@ -54,14 +54,7 @@ def main():
         ),
     ).to(device)
 
-    model = make_model(
-        config.embed_dim,
-        config.patch_size,
-        config.depth,
-        config.num_heads,
-        config.dropout_attn,
-        config.dropout_rate,
-    ).to(device)
+    model = make_model(dict(config)).to(device)
     criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr)
 
@@ -69,7 +62,7 @@ def main():
     scores = np.array([])
     patience = 3
 
-    for epoch in range(50):
+    for epoch in range(10):
         print("========= EPOCH %d =========" % epoch)
         model.train()
         train_loss = 0
@@ -101,9 +94,15 @@ def main():
         wandb.log({"val_acc": val_accuracy.compute(), "val_loss": val_loss})
 
         scores = np.append(scores, [val_loss])
+
         # check for early stopping
         if np.sum(np.diff(scores[-(patience - 1) :]) > 0) == patience:
             break
+
+    # TODO: save checkpoint instead of latest
+    torch.save(
+        {"config": dict(config), "weights": model.state_dict()}, args.output_path
+    )
 
 
 if __name__ == "__main__":

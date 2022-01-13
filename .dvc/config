@@ -1,4 +1,6 @@
 [core]
-    remote = storage
-['remote "storage"']
-    url = gs://best-bucket-dtumlops
+    remote = gcs
+[cache]
+    gs = gcs
+['remote "gcs"']
+    url = gs://data-bucket-mask-no-mask/cache

@@ -1,0 +1,10 @@
+md5: 1460b3f5caf5620c03cfdda3772e1130
+frozen: true
+deps:
+- size: 221464048
+  path: gs://data-bucket-mask-no-mask/data/raw.zip
+  etag: 0882d9878ee4aef5021001
+outs:
+- md5: f377913605f3e6e7d4a00773709e8624
+  size: 221464048
+  path: raw.zip
