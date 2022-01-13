@@ -1,0 +1,22 @@
+{
+    "os": "macOS-10.16-x86_64-i386-64bit",
+    "python": "3.9.7",
+    "heartbeatAt": "2022-01-09T13:32:00.662715",
+    "startedAt": "2022-01-09T13:31:57.611737",
+    "docker": null,
+    "cpu_count": 4,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/train_model.py",
+    "codePath": "src/models/train_model.py",
+    "git": {
+        "remote": "https://github.com/lucasalexsorensen/mlops.git",
+        "commit": "c0c36c0b2d9655f88326c1112e31623b48c73b6b"
+    },
+    "email": "thomas.ryde@gmail.com",
+    "root": "/Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops",
+    "host": "Thomass-MacBook-Air.local",
+    "username": "thomasryde",
+    "executable": "/Users/thomasryde/opt/anaconda3/envs/myenv/bin/python"
+}

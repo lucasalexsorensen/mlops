@@ -1,0 +1,14 @@
+wandb_version: 1
+
+batch_size:
+  value: 31
+dropout_attn:
+  value: 0.05617189407598231
+dropout_rate:
+  value: 0.6373600337700394
+embed_dim:
+  value: 386
+lr:
+  value: 0.00014324219865227312
+patch_size:
+  value: 9

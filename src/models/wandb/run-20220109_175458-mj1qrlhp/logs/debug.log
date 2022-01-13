@@ -1,0 +1,23 @@
+2022-01-09 17:54:58,876 INFO    MainThread:20178 [wandb_setup.py:_flush():71] setting env: {'entity': 'thomasryde', 'project': 'mlops', 'sweep_id': 'm9806oro', 'root_dir': '/Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models', 'run_id': 'mj1qrlhp', 'sweep_param_path': '/Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/wandb/sweep-m9806oro/config-mj1qrlhp.yaml'}
+2022-01-09 17:54:58,876 INFO    MainThread:20178 [wandb_setup.py:_flush():71] setting login settings: {}
+2022-01-09 17:54:58,876 INFO    MainThread:20178 [wandb_init.py:_log_setup():371] Logging user logs to /Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/wandb/run-20220109_175458-mj1qrlhp/logs/debug.log
+2022-01-09 17:54:58,877 INFO    MainThread:20178 [wandb_init.py:_log_setup():372] Logging internal logs to /Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/wandb/run-20220109_175458-mj1qrlhp/logs/debug-internal.log
+2022-01-09 17:54:58,877 INFO    MainThread:20178 [wandb_init.py:init():404] calling init triggers
+2022-01-09 17:54:58,878 INFO    MainThread:20178 [wandb_init.py:init():409] wandb.init called with sweep_config: {'batch_size': 30, 'dropout_attn': 0.11750396206284588, 'dropout_rate': 0.22961699020986656, 'embed_dim': 303, 'learning_rate': 0.0005267908639863879, 'patch_size': 7}
+config: {'embed_dim': 256, 'batch_size': 32, 'learning_rate': 0.0001, 'dropout_rate': 0.4, 'dropout_attn': 0.1, 'patch_size': 8, 'num_epochs': 30}
+2022-01-09 17:54:58,878 INFO    MainThread:20178 [wandb_init.py:init():460] starting backend
+2022-01-09 17:54:58,878 INFO    MainThread:20178 [backend.py:_multiprocessing_setup():99] multiprocessing start_methods=spawn,fork,forkserver, using: spawn
+2022-01-09 17:54:58,894 INFO    MainThread:20178 [backend.py:ensure_launched():216] starting backend process...
+2022-01-09 17:54:58,912 INFO    MainThread:20178 [backend.py:ensure_launched():221] started backend process with pid: 20193
+2022-01-09 17:54:58,919 INFO    MainThread:20178 [wandb_init.py:init():469] backend started and connected
+2022-01-09 17:54:58,923 INFO    MainThread:20178 [wandb_run.py:_config_callback():956] config_cb None None {'batch_size': 30, 'dropout_attn': 0.11750396206284588, 'dropout_rate': 0.22961699020986656, 'embed_dim': 303, 'learning_rate': 0.0005267908639863879, 'patch_size': 7}
+2022-01-09 17:54:58,931 INFO    MainThread:20178 [wandb_init.py:init():533] updated telemetry
+2022-01-09 17:54:58,980 INFO    MainThread:20178 [wandb_init.py:init():563] communicating current version
+2022-01-09 17:55:00,942 INFO    MainThread:20178 [wandb_init.py:init():568] got version response 
+2022-01-09 17:55:00,943 INFO    MainThread:20178 [wandb_init.py:init():578] communicating run to backend with 30 second timeout
+2022-01-09 17:55:01,180 INFO    MainThread:20178 [wandb_init.py:init():606] starting run threads in backend
+2022-01-09 17:55:05,578 INFO    MainThread:20178 [wandb_run.py:_console_start():1810] atexit reg
+2022-01-09 17:55:05,579 INFO    MainThread:20178 [wandb_run.py:_redirect():1684] redirect: SettingsConsole.REDIRECT
+2022-01-09 17:55:05,579 INFO    MainThread:20178 [wandb_run.py:_redirect():1689] Redirecting console.
+2022-01-09 17:55:05,588 INFO    MainThread:20178 [wandb_run.py:_redirect():1745] Redirects installed.
+2022-01-09 17:55:05,588 INFO    MainThread:20178 [wandb_init.py:init():633] run started, returning control to user process

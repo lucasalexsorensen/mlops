@@ -1,0 +1,77 @@
+2022-01-09 14:47:38 INFO Running runs: []
+2022-01-09 14:47:38 INFO Agent received command: run
+2022-01-09 14:47:38 INFO Agent starting run with config:
+	batch_size: 26
+	dropout_attn: 0.08313115224046386
+	dropout_rate: 0.6733473491993568
+	embed_dim: 335
+	lr: 0.0002777164797749016
+	patch_size: 11
+2022-01-09 14:47:38 INFO About to run command: /usr/bin/env python train.py --batch_size=26 --dropout_attn=0.08313115224046386 --dropout_rate=0.6733473491993568 --embed_dim=335 --lr=0.0002777164797749016 --patch_size=11
+2022-01-09 14:47:43 INFO Running runs: ['1jpohuws']
+2022-01-09 14:47:43 INFO Cleaning up finished run: 1jpohuws
+2022-01-09 14:47:44 INFO Agent received command: run
+2022-01-09 14:47:44 INFO Agent starting run with config:
+	batch_size: 52
+	dropout_attn: 0.1415937116881847
+	dropout_rate: 0.32846662553285366
+	embed_dim: 142
+	lr: 0.00011277865660496876
+	patch_size: 13
+2022-01-09 14:47:44 INFO About to run command: /usr/bin/env python train.py --batch_size=52 --dropout_attn=0.1415937116881847 --dropout_rate=0.32846662553285366 --embed_dim=142 --lr=0.00011277865660496876 --patch_size=13
+2022-01-09 14:55:57 INFO Running runs: []
+2022-01-09 14:55:58 INFO Agent received command: run
+2022-01-09 14:55:58 INFO Agent starting run with config:
+	batch_size: 31
+	dropout_attn: 0.05617189407598231
+	dropout_rate: 0.6373600337700394
+	embed_dim: 386
+	lr: 0.00014324219865227312
+	patch_size: 9
+2022-01-09 14:55:58 INFO About to run command: /usr/bin/env python train.py --batch_size=31 --dropout_attn=0.05617189407598231 --dropout_rate=0.6373600337700394 --embed_dim=386 --lr=0.00014324219865227312 --patch_size=9
+2022-01-09 14:56:03 INFO Running runs: ['6fdqrh8z']
+2022-01-09 14:56:03 INFO Cleaning up finished run: 6fdqrh8z
+2022-01-09 14:56:03 INFO Agent received command: run
+2022-01-09 14:56:03 INFO Agent starting run with config:
+	batch_size: 43
+	dropout_attn: 0.16522526942667654
+	dropout_rate: 0.23907326603700757
+	embed_dim: 342
+	lr: 6.838136474039954e-05
+	patch_size: 5
+2022-01-09 14:56:03 INFO About to run command: /usr/bin/env python train.py --batch_size=43 --dropout_attn=0.16522526942667654 --dropout_rate=0.23907326603700757 --embed_dim=342 --lr=6.838136474039954e-05 --patch_size=5
+2022-01-09 14:56:08 INFO Running runs: ['9vz3yubm']
+2022-01-09 14:56:08 INFO Cleaning up finished run: 9vz3yubm
+2022-01-09 14:56:09 INFO Agent received command: run
+2022-01-09 14:56:09 INFO Agent starting run with config:
+	batch_size: 18
+	dropout_attn: 0.13828940028832673
+	dropout_rate: 0.2818709250866277
+	embed_dim: 422
+	lr: 0.00015077747082827282
+	patch_size: 8
+2022-01-09 14:56:09 INFO About to run command: /usr/bin/env python train.py --batch_size=18 --dropout_attn=0.13828940028832673 --dropout_rate=0.2818709250866277 --embed_dim=422 --lr=0.00015077747082827282 --patch_size=8
+2022-01-09 14:56:14 INFO Running runs: ['55s19zcm']
+2022-01-09 14:56:14 ERROR Detected 3 failed runs in the first 60 seconds, shutting down.
+2022-01-09 14:56:14 INFO To disable this check set WANDB_AGENT_DISABLE_FLAPPING=true
+2022-01-09 17:39:49 INFO Running runs: []
+2022-01-09 17:39:49 INFO Agent received command: run
+2022-01-09 17:39:49 INFO Agent starting run with config:
+	batch_size: 33
+	dropout_attn: 0.16610600062457914
+	dropout_rate: 0.572302940739724
+	embed_dim: 435
+	learning_rate: 0.00182934480411544
+	patch_size: 10
+2022-01-09 17:39:49 INFO About to run command: /usr/bin/env python train_model.py --batch_size=33 --dropout_attn=0.16610600062457914 --dropout_rate=0.572302940739724 --embed_dim=435 --learning_rate=0.00182934480411544 --patch_size=10
+2022-01-09 17:39:54 INFO Running runs: ['669bwqhc']
+2022-01-09 17:39:54 INFO Cleaning up finished run: 669bwqhc
+2022-01-09 17:39:55 INFO Agent received command: run
+2022-01-09 17:39:55 INFO Agent starting run with config:
+	batch_size: 44
+	dropout_attn: 0.14575955702202023
+	dropout_rate: 0.5255413514061293
+	embed_dim: 199
+	learning_rate: 0.001503015729915399
+	patch_size: 12
+2022-01-09 17:39:55 INFO About to run command: /usr/bin/env python train_model.py --batch_size=44 --dropout_attn=0.14575955702202023 --dropout_rate=0.5255413514061293 --embed_dim=199 --learning_rate=0.001503015729915399 --patch_size=12

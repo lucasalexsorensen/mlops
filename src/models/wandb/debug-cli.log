@@ -1,0 +1,121 @@
+2022-01-09 14:48:02 INFO Running runs: []
+2022-01-09 14:48:02 INFO Agent received command: run
+2022-01-09 14:48:02 INFO Agent starting run with config:
+	batch_size: 21
+	dropout_attn: 0.06612407669734711
+	dropout_rate: 0.29451074699497937
+	embed_dim: 392
+	lr: 0.0001490391007672265
+	patch_size: 12
+2022-01-09 14:48:02 INFO About to run command: /usr/bin/env python train.py --batch_size=21 --dropout_attn=0.06612407669734711 --dropout_rate=0.29451074699497937 --embed_dim=392 --lr=0.0001490391007672265 --patch_size=12
+2022-01-09 14:48:07 INFO Running runs: ['mswhikn6']
+2022-01-09 14:48:07 INFO Cleaning up finished run: mswhikn6
+2022-01-09 14:48:07 INFO Agent received command: run
+2022-01-09 14:48:07 INFO Agent starting run with config:
+	batch_size: 62
+	dropout_attn: 0.10353270561745433
+	dropout_rate: 0.3777813327489449
+	embed_dim: 469
+	lr: 0.0002746252013463968
+	patch_size: 8
+2022-01-09 14:48:07 INFO About to run command: /usr/bin/env python train.py --batch_size=62 --dropout_attn=0.10353270561745433 --dropout_rate=0.3777813327489449 --embed_dim=469 --lr=0.0002746252013463968 --patch_size=8
+2022-01-09 14:48:12 INFO Running runs: ['m9cp3nu6']
+2022-01-09 14:48:12 INFO Cleaning up finished run: m9cp3nu6
+2022-01-09 14:48:13 INFO Agent received command: run
+2022-01-09 14:48:13 INFO Agent starting run with config:
+	batch_size: 61
+	dropout_attn: 0.07585006444528859
+	dropout_rate: 0.6477933353308511
+	embed_dim: 69
+	lr: 0.0002148444269302774
+	patch_size: 6
+2022-01-09 14:48:13 INFO About to run command: /usr/bin/env python train.py --batch_size=61 --dropout_attn=0.07585006444528859 --dropout_rate=0.6477933353308511 --embed_dim=69 --lr=0.0002148444269302774 --patch_size=6
+2022-01-09 14:48:18 INFO Running runs: ['ne5u3v9g']
+2022-01-09 14:48:18 ERROR Detected 3 failed runs in the first 60 seconds, shutting down.
+2022-01-09 14:48:18 INFO To disable this check set WANDB_AGENT_DISABLE_FLAPPING=true
+2022-01-09 14:57:03 INFO Running runs: []
+2022-01-09 14:57:03 INFO Agent received command: run
+2022-01-09 14:57:03 INFO Agent starting run with config:
+	batch_size: 47
+	dropout_attn: 0.15501534819491192
+	dropout_rate: 0.4471198851711369
+	embed_dim: 218
+	lr: 0.000125392564698901
+	patch_size: 10
+2022-01-09 14:57:03 INFO About to run command: /usr/bin/env python train.py --batch_size=47 --dropout_attn=0.15501534819491192 --dropout_rate=0.4471198851711369 --embed_dim=218 --lr=0.000125392564698901 --patch_size=10
+2022-01-09 14:57:08 INFO Running runs: ['i68m9ru4']
+2022-01-09 14:57:08 INFO Cleaning up finished run: i68m9ru4
+2022-01-09 14:57:08 INFO Agent received command: run
+2022-01-09 14:57:08 INFO Agent starting run with config:
+	batch_size: 46
+	dropout_attn: 0.10409254396932956
+	dropout_rate: 0.4548297028028744
+	embed_dim: 417
+	lr: 0.0001290438247141021
+	patch_size: 16
+2022-01-09 14:57:08 INFO About to run command: /usr/bin/env python train.py --batch_size=46 --dropout_attn=0.10409254396932956 --dropout_rate=0.4548297028028744 --embed_dim=417 --lr=0.0001290438247141021 --patch_size=16
+2022-01-09 14:57:13 INFO Running runs: ['a4rlygoe']
+2022-01-09 14:57:13 INFO Cleaning up finished run: a4rlygoe
+2022-01-09 14:57:14 INFO Agent received command: run
+2022-01-09 14:57:14 INFO Agent starting run with config:
+	batch_size: 47
+	dropout_attn: 0.13967964147991668
+	dropout_rate: 0.4042002026048239
+	embed_dim: 243
+	lr: 6.074538581090051e-05
+	patch_size: 9
+2022-01-09 14:57:14 INFO About to run command: /usr/bin/env python train.py --batch_size=47 --dropout_attn=0.13967964147991668 --dropout_rate=0.4042002026048239 --embed_dim=243 --lr=6.074538581090051e-05 --patch_size=9
+2022-01-09 17:40:14 INFO Running runs: []
+2022-01-09 17:40:15 INFO Agent received command: run
+2022-01-09 17:40:15 INFO Agent starting run with config:
+	batch_size: 63
+	dropout_attn: 0.07247477741868746
+	dropout_rate: 0.5474560496422799
+	embed_dim: 397
+	learning_rate: 0.0010940182437102913
+	patch_size: 9
+2022-01-09 17:40:15 INFO About to run command: /usr/bin/env python train_model.py --batch_size=63 --dropout_attn=0.07247477741868746 --dropout_rate=0.5474560496422799 --embed_dim=397 --learning_rate=0.0010940182437102913 --patch_size=9
+2022-01-09 17:40:20 INFO Running runs: ['bd57488e']
+2022-01-09 17:41:05 INFO Running runs: []
+2022-01-09 17:41:06 INFO Agent received command: run
+2022-01-09 17:41:06 INFO Agent starting run with config:
+	batch_size: 64
+	dropout_attn: 0.10983264305887933
+	dropout_rate: 0.6549661076061599
+	embed_dim: 411
+	learning_rate: 0.0005403768867329727
+	patch_size: 6
+2022-01-09 17:41:06 INFO About to run command: /usr/bin/env python train_model.py --batch_size=64 --dropout_attn=0.10983264305887933 --dropout_rate=0.6549661076061599 --embed_dim=411 --learning_rate=0.0005403768867329727 --patch_size=6
+2022-01-09 17:41:11 INFO Running runs: ['42eap6yx']
+2022-01-09 17:41:32 INFO Cleaning up finished run: 42eap6yx
+2022-01-09 17:41:33 INFO Agent received command: run
+2022-01-09 17:41:33 INFO Agent starting run with config:
+	batch_size: 53
+	dropout_attn: 0.1604872369947467
+	dropout_rate: 0.35486474898203557
+	embed_dim: 224
+	learning_rate: 0.001761451989528809
+	patch_size: 14
+2022-01-09 17:41:33 INFO About to run command: /usr/bin/env python train_model.py --batch_size=53 --dropout_attn=0.1604872369947467 --dropout_rate=0.35486474898203557 --embed_dim=224 --learning_rate=0.001761451989528809 --patch_size=14
+2022-01-09 17:41:38 INFO Running runs: ['0xmwbjnq']
+2022-01-09 17:41:59 INFO Cleaning up finished run: 0xmwbjnq
+2022-01-09 17:42:00 INFO Agent received command: run
+2022-01-09 17:42:00 INFO Agent starting run with config:
+	batch_size: 58
+	dropout_attn: 0.11280582040935118
+	dropout_rate: 0.6702834846772139
+	embed_dim: 326
+	learning_rate: 0.001928774421585115
+	patch_size: 11
+2022-01-09 17:42:00 INFO About to run command: /usr/bin/env python train_model.py --batch_size=58 --dropout_attn=0.11280582040935118 --dropout_rate=0.6702834846772139 --embed_dim=326 --learning_rate=0.001928774421585115 --patch_size=11
+2022-01-09 17:54:55 INFO Running runs: []
+2022-01-09 17:54:55 INFO Agent received command: run
+2022-01-09 17:54:55 INFO Agent starting run with config:
+	batch_size: 30
+	dropout_attn: 0.11750396206284588
+	dropout_rate: 0.22961699020986656
+	embed_dim: 303
+	learning_rate: 0.0005267908639863879
+	patch_size: 7
+2022-01-09 17:54:55 INFO About to run command: /usr/bin/env python train_model.py --batch_size=30 --dropout_attn=0.11750396206284588 --dropout_rate=0.22961699020986656 --embed_dim=303 --learning_rate=0.0005267908639863879 --patch_size=7
+2022-01-09 17:55:00 INFO Running runs: ['mj1qrlhp']

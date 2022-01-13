@@ -1,0 +1,216 @@
+Traceback (most recent call last):
+  File "/Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/train_model.py", line 61, in <module>
+    for epoch in range(num_epochs):
+NameError: name 'num_epochs' is not defined
+----------------------------------------------------------------
+        Layer (type)               Output Shape         Param #
+================================================================
+            Conv2d-1            [-1, 397, 7, 7]          96,868
+    PatchEmbedding-2              [-1, 50, 397]               0
+         LayerNorm-3              [-1, 50, 397]             794
+            Linear-4             [-1, 50, 1191]         472,827
+           Dropout-5            [-1, 1, 50, 50]               0
+            Linear-6              [-1, 50, 397]         158,006
+           Dropout-7              [-1, 50, 397]               0
+MultiHeadAttention-8              [-1, 50, 397]               0
+           Dropout-9              [-1, 50, 397]               0
+      ResidualAdd-10              [-1, 50, 397]               0
+        LayerNorm-11              [-1, 50, 397]             794
+           Linear-12              [-1, 50, 397]         158,006
+             GELU-13              [-1, 50, 397]               0
+          Dropout-14              [-1, 50, 397]               0
+           Linear-15              [-1, 50, 397]         158,006
+          Dropout-16              [-1, 50, 397]               0
+          Dropout-17              [-1, 50, 397]               0
+      ResidualAdd-18              [-1, 50, 397]               0
+        LayerNorm-19              [-1, 50, 397]             794
+           Linear-20             [-1, 50, 1191]         472,827
+          Dropout-21            [-1, 1, 50, 50]               0
+           Linear-22              [-1, 50, 397]         158,006
+          Dropout-23              [-1, 50, 397]               0
+MultiHeadAttention-24              [-1, 50, 397]               0
+          Dropout-25              [-1, 50, 397]               0
+      ResidualAdd-26              [-1, 50, 397]               0
+        LayerNorm-27              [-1, 50, 397]             794
+           Linear-28              [-1, 50, 397]         158,006
+             GELU-29              [-1, 50, 397]               0
+          Dropout-30              [-1, 50, 397]               0
+           Linear-31              [-1, 50, 397]         158,006
+          Dropout-32              [-1, 50, 397]               0
+          Dropout-33              [-1, 50, 397]               0
+      ResidualAdd-34              [-1, 50, 397]               0
+        LayerNorm-35              [-1, 50, 397]             794
+           Linear-36             [-1, 50, 1191]         472,827
+          Dropout-37            [-1, 1, 50, 50]               0
+           Linear-38              [-1, 50, 397]         158,006
+          Dropout-39              [-1, 50, 397]               0
+MultiHeadAttention-40              [-1, 50, 397]               0
+          Dropout-41              [-1, 50, 397]               0
+      ResidualAdd-42              [-1, 50, 397]               0
+        LayerNorm-43              [-1, 50, 397]             794
+           Linear-44              [-1, 50, 397]         158,006
+             GELU-45              [-1, 50, 397]               0
+          Dropout-46              [-1, 50, 397]               0
+           Linear-47              [-1, 50, 397]         158,006
+          Dropout-48              [-1, 50, 397]               0
+          Dropout-49              [-1, 50, 397]               0
+      ResidualAdd-50              [-1, 50, 397]               0
+        LayerNorm-51              [-1, 50, 397]             794
+           Linear-52             [-1, 50, 1191]         472,827
+          Dropout-53            [-1, 1, 50, 50]               0
+           Linear-54              [-1, 50, 397]         158,006
+          Dropout-55              [-1, 50, 397]               0
+MultiHeadAttention-56              [-1, 50, 397]               0
+          Dropout-57              [-1, 50, 397]               0
+      ResidualAdd-58              [-1, 50, 397]               0
+        LayerNorm-59              [-1, 50, 397]             794
+           Linear-60              [-1, 50, 397]         158,006
+             GELU-61              [-1, 50, 397]               0
+          Dropout-62              [-1, 50, 397]               0
+           Linear-63              [-1, 50, 397]         158,006
+          Dropout-64              [-1, 50, 397]               0
+          Dropout-65              [-1, 50, 397]               0
+      ResidualAdd-66              [-1, 50, 397]               0
+        LayerNorm-67              [-1, 50, 397]             794
+           Linear-68             [-1, 50, 1191]         472,827
+          Dropout-69            [-1, 1, 50, 50]               0
+           Linear-70              [-1, 50, 397]         158,006
+          Dropout-71              [-1, 50, 397]               0
+MultiHeadAttention-72              [-1, 50, 397]               0
+          Dropout-73              [-1, 50, 397]               0
+      ResidualAdd-74              [-1, 50, 397]               0
+        LayerNorm-75              [-1, 50, 397]             794
+           Linear-76              [-1, 50, 397]         158,006
+             GELU-77              [-1, 50, 397]               0
+          Dropout-78              [-1, 50, 397]               0
+           Linear-79              [-1, 50, 397]         158,006
+          Dropout-80              [-1, 50, 397]               0
+          Dropout-81              [-1, 50, 397]               0
+      ResidualAdd-82              [-1, 50, 397]               0
+        LayerNorm-83              [-1, 50, 397]             794
+           Linear-84             [-1, 50, 1191]         472,827
+          Dropout-85            [-1, 1, 50, 50]               0
+           Linear-86              [-1, 50, 397]         158,006
+          Dropout-87              [-1, 50, 397]               0
+MultiHeadAttention-88              [-1, 50, 397]               0
+          Dropout-89              [-1, 50, 397]               0
+      ResidualAdd-90              [-1, 50, 397]               0
+        LayerNorm-91              [-1, 50, 397]             794
+           Linear-92              [-1, 50, 397]         158,006
+             GELU-93              [-1, 50, 397]               0
+          Dropout-94              [-1, 50, 397]               0
+           Linear-95              [-1, 50, 397]         158,006
+          Dropout-96              [-1, 50, 397]               0
+          Dropout-97              [-1, 50, 397]               0
+      ResidualAdd-98              [-1, 50, 397]               0
+        LayerNorm-99              [-1, 50, 397]             794
+          Linear-100             [-1, 50, 1191]         472,827
+         Dropout-101            [-1, 1, 50, 50]               0
+          Linear-102              [-1, 50, 397]         158,006
+         Dropout-103              [-1, 50, 397]               0
+MultiHeadAttention-104              [-1, 50, 397]               0
+         Dropout-105              [-1, 50, 397]               0
+     ResidualAdd-106              [-1, 50, 397]               0
+       LayerNorm-107              [-1, 50, 397]             794
+          Linear-108              [-1, 50, 397]         158,006
+            GELU-109              [-1, 50, 397]               0
+         Dropout-110              [-1, 50, 397]               0
+          Linear-111              [-1, 50, 397]         158,006
+         Dropout-112              [-1, 50, 397]               0
+         Dropout-113              [-1, 50, 397]               0
+     ResidualAdd-114              [-1, 50, 397]               0
+       LayerNorm-115              [-1, 50, 397]             794
+          Linear-116             [-1, 50, 1191]         472,827
+         Dropout-117            [-1, 1, 50, 50]               0
+          Linear-118              [-1, 50, 397]         158,006
+         Dropout-119              [-1, 50, 397]               0
+MultiHeadAttention-120              [-1, 50, 397]               0
+         Dropout-121              [-1, 50, 397]               0
+     ResidualAdd-122              [-1, 50, 397]               0
+       LayerNorm-123              [-1, 50, 397]             794
+          Linear-124              [-1, 50, 397]         158,006
+            GELU-125              [-1, 50, 397]               0
+         Dropout-126              [-1, 50, 397]               0
+          Linear-127              [-1, 50, 397]         158,006
+         Dropout-128              [-1, 50, 397]               0
+         Dropout-129              [-1, 50, 397]               0
+     ResidualAdd-130              [-1, 50, 397]               0
+       LayerNorm-131              [-1, 50, 397]             794
+          Linear-132             [-1, 50, 1191]         472,827
+         Dropout-133            [-1, 1, 50, 50]               0
+          Linear-134              [-1, 50, 397]         158,006
+         Dropout-135              [-1, 50, 397]               0
+MultiHeadAttention-136              [-1, 50, 397]               0
+         Dropout-137              [-1, 50, 397]               0
+     ResidualAdd-138              [-1, 50, 397]               0
+       LayerNorm-139              [-1, 50, 397]             794
+          Linear-140              [-1, 50, 397]         158,006
+            GELU-141              [-1, 50, 397]               0
+         Dropout-142              [-1, 50, 397]               0
+          Linear-143              [-1, 50, 397]         158,006
+         Dropout-144              [-1, 50, 397]               0
+         Dropout-145              [-1, 50, 397]               0
+     ResidualAdd-146              [-1, 50, 397]               0
+       LayerNorm-147              [-1, 50, 397]             794
+          Linear-148             [-1, 50, 1191]         472,827
+         Dropout-149            [-1, 1, 50, 50]               0
+          Linear-150              [-1, 50, 397]         158,006
+         Dropout-151              [-1, 50, 397]               0
+MultiHeadAttention-152              [-1, 50, 397]               0
+         Dropout-153              [-1, 50, 397]               0
+     ResidualAdd-154              [-1, 50, 397]               0
+       LayerNorm-155              [-1, 50, 397]             794
+          Linear-156              [-1, 50, 397]         158,006
+            GELU-157              [-1, 50, 397]               0
+         Dropout-158              [-1, 50, 397]               0
+          Linear-159              [-1, 50, 397]         158,006
+         Dropout-160              [-1, 50, 397]               0
+         Dropout-161              [-1, 50, 397]               0
+     ResidualAdd-162              [-1, 50, 397]               0
+       LayerNorm-163              [-1, 50, 397]             794
+          Linear-164             [-1, 50, 1191]         472,827
+         Dropout-165            [-1, 1, 50, 50]               0
+          Linear-166              [-1, 50, 397]         158,006
+         Dropout-167              [-1, 50, 397]               0
+MultiHeadAttention-168              [-1, 50, 397]               0
+         Dropout-169              [-1, 50, 397]               0
+     ResidualAdd-170              [-1, 50, 397]               0
+       LayerNorm-171              [-1, 50, 397]             794
+          Linear-172              [-1, 50, 397]         158,006
+            GELU-173              [-1, 50, 397]               0
+         Dropout-174              [-1, 50, 397]               0
+          Linear-175              [-1, 50, 397]         158,006
+         Dropout-176              [-1, 50, 397]               0
+         Dropout-177              [-1, 50, 397]               0
+     ResidualAdd-178              [-1, 50, 397]               0
+       LayerNorm-179              [-1, 50, 397]             794
+          Linear-180             [-1, 50, 1191]         472,827
+         Dropout-181            [-1, 1, 50, 50]               0
+          Linear-182              [-1, 50, 397]         158,006
+         Dropout-183              [-1, 50, 397]               0
+MultiHeadAttention-184              [-1, 50, 397]               0
+         Dropout-185              [-1, 50, 397]               0
+     ResidualAdd-186              [-1, 50, 397]               0
+       LayerNorm-187              [-1, 50, 397]             794
+          Linear-188              [-1, 50, 397]         158,006
+            GELU-189              [-1, 50, 397]               0
+         Dropout-190              [-1, 50, 397]               0
+          Linear-191              [-1, 50, 397]         158,006
+         Dropout-192              [-1, 50, 397]               0
+         Dropout-193              [-1, 50, 397]               0
+     ResidualAdd-194              [-1, 50, 397]               0
+TransformerEncoder-195              [-1, 50, 397]               0
+VisionTransformer-196              [-1, 50, 397]               0
+       LayerNorm-197                  [-1, 397]             794
+          Linear-198                    [-1, 2]             796
+ClassificationHead-199                    [-1, 2]               0
+================================================================
+Total params: 11,479,654
+Trainable params: 11,479,654
+Non-trainable params: 0
+----------------------------------------------------------------
+Input size (MB): 0.05
+Forward/backward pass size (MB): 31.73
+Params size (MB): 43.79
+Estimated Total Size (MB): 75.57
+----------------------------------------------------------------

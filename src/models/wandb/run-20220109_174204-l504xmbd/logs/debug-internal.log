@@ -1,0 +1,11 @@
+2022-01-09 17:42:07,363 INFO    MainThread:19451 [internal.py:wandb_internal():87] W&B internal server running at pid: 19451, started at: 2022-01-09 17:42:07.363074
+2022-01-09 17:42:07,365 INFO    WriterThread:19451 [datastore.py:open_for_write():77] open: /Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/wandb/run-20220109_174204-l504xmbd/run-l504xmbd.wandb
+2022-01-09 17:42:07,366 DEBUG   HandlerThread:19451 [handler.py:handle_request():130] handle_request: check_version
+2022-01-09 17:42:07,368 DEBUG   SenderThread:19451 [sender.py:send():234] send: header
+2022-01-09 17:42:07,368 DEBUG   SenderThread:19451 [sender.py:send_request():248] send_request: check_version
+2022-01-09 17:42:08,366 WARNING MainThread:19451 [internal.py:is_dead():366] Internal process exiting, parent pid 19433 disappeared
+2022-01-09 17:42:08,367 ERROR   MainThread:19451 [internal.py:wandb_internal():142] Internal process shutdown.
+2022-01-09 17:42:08,370 INFO    WriterThread:19451 [datastore.py:close():281] close: /Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/wandb/run-20220109_174204-l504xmbd/run-l504xmbd.wandb
+2022-01-09 17:42:08,431 INFO    SenderThread:19451 [sender.py:finish():1070] shutting down sender
+2022-01-09 17:42:09,370 INFO    HandlerThread:19451 [handler.py:finish():731] shutting down handler
+2022-01-09 17:42:09,371 INFO    MainThread:19451 [internal.py:handle_exit():77] Internal process exited

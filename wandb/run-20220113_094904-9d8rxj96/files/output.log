@@ -1,0 +1,12 @@
+
+USING DEVICE cpu
+Traceback (most recent call last):
+  File "/Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/train_model.py", line 112, in <module>
+    main()
+  File "/Users/thomasryde/Documents/University/Kandidat/3. Semester/Machine Learning Operations/mlops/src/models/train_model.py", line 37, in main
+    train_loader = DataLoader(train_set, batch_size=config.batch_size, shuffle=True)
+  File "/Users/thomasryde/opt/anaconda3/envs/myenv/lib/python3.9/site-packages/torch/utils/data/dataloader.py", line 268, in __init__
+    sampler = RandomSampler(dataset, generator=generator)
+  File "/Users/thomasryde/opt/anaconda3/envs/myenv/lib/python3.9/site-packages/torch/utils/data/sampler.py", line 102, in __init__
+    raise ValueError("num_samples should be a positive integer "
+ValueError: num_samples should be a positive integer value, but got num_samples=0
