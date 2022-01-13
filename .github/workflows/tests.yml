@@ -17,6 +17,7 @@ jobs:
       with:
         python-version: 3.8
         cache: 'pip'
+        cache-dependency-path: requirements/dev.txt
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -29,6 +30,7 @@ jobs:
       run: |
         echo ${{secrets.GOOGLE_APPLICATION_CREDENTIALS}} > key.json
         export GOOGLE_APPLICATION_CREDENTIALS=$(pwd)/key.json
+        echo ${GOOGLE_APPLICATION_CREDENTIALS}
         python -m dvc update data/*.dvc
         python -m dvc pull
     - name: Run pipeline
