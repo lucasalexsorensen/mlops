@@ -1,5 +1,6 @@
 import sys, os
-sys.path.append(os.path.dirname(__file__) + '/../data')
+
+sys.path.append(os.path.dirname(__file__) + "/../data")
 from data import MaskDataset
 from torch.utils.data import DataLoader
 import kornia as K
@@ -9,10 +10,11 @@ import torch
 import wandb
 import numpy as np
 import pandas as pd
-import torch.nn.functional as F
 from torchvision.transforms import ToTensor
+from .model import make_model
 import argparse
 import torchmetrics
+
 
 def main():
     parser = argparse.ArgumentParser(description="Script for fitting model")
@@ -52,17 +54,13 @@ def main():
         ),
     ).to(device)
 
-    model = nn.Sequential(
-        K.contrib.VisionTransformer(
-            image_size=64,
-            embed_dim=config.embed_dim,
-            patch_size=config.patch_size,
-            depth=config.depth,
-            num_heads=config.num_heads,
-            dropout_attn=config.dropout_attn,
-            dropout_rate=config.dropout_rate,
-        ),
-        K.contrib.ClassificationHead(embed_size=config.embed_dim, num_classes=2),
+    model = make_model(
+        config.embed_dim,
+        config.patch_size,
+        config.depth,
+        config.num_heads,
+        config.dropout_attn,
+        config.dropout_rate,
     ).to(device)
     criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr)
