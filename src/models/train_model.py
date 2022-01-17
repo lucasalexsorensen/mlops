@@ -8,7 +8,7 @@ import wandb
 import numpy as np
 import pandas as pd
 from torchvision.transforms import ToTensor
-from .model import make_model
+from .model import Net
 import argparse
 import torchmetrics
 
@@ -54,7 +54,7 @@ def main():
         ),
     ).to(device)
 
-    model = make_model(dict(config)).to(device)
+    model = Net(dict(config)).to(device)
     criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr)
 
@@ -100,9 +100,7 @@ def main():
             break
 
     # TODO: save checkpoint instead of latest
-    torch.save(
-        {"config": dict(config), "weights": model.state_dict()}, args.output_path
-    )
+    torch.save(model.state_dict(), args.output_path)
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ import wandb
 import numpy as np
 import pandas as pd
 from torchvision.transforms import ToTensor
-from .model import make_model
+from .model import Net
 import argparse
 import json
 import torchmetrics
@@ -26,10 +26,8 @@ def main():
     test_set = MaskDataset(root_dir=args.test_data)
     test_loader = DataLoader(test_set, batch_size=64)
 
-    saved = torch.load(args.output_path)
-
-    config, weights = saved["config"], saved["weights"]
-    model = make_model(config).to(device)
+    weights = torch.load(args.output_path)
+    model = Net().to(device)
     model.load_state_dict(weights)
     model.eval()
     test_accuracy = torchmetrics.Accuracy().to(device)

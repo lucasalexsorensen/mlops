@@ -22,6 +22,7 @@ stages:
       - src/models/model.py
       - src/models/train_model.py
       - src/data/data.py
+      - Dockerfile
     outs:
       - outputs/model.pth
 
@@ -35,4 +36,9 @@ stages:
     metrics:
       - outputs/metrics.json:
           cache: false
-    
+
+  build_image:
+    cmd: docker build -t europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve .
+    deps:
+      - outputs/model.pth
+      - src/models/model_handler.py

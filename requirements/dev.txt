@@ -1,3 +1,4 @@
 -r base.txt
 dvc
 dvc[gs]
+google-cloud-aiplatform==1.9.0
