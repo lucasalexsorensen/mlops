@@ -39,7 +39,7 @@ jobs:
             --region=europe-west4 \
             --project=dtumlops-project-mask-no-mask \
             --filter=displayName:masks-${{ github.sha }} \
-            --format="value(name)"
+            --format="value(name)")
 
           gcloud ai endpoints deploy-model 379938442001252352 \
             --region=europe-west4 \
