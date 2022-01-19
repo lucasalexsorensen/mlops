@@ -30,7 +30,7 @@ def main():
     args = parser.parse_args()
     # wandb.init(project="mlops", job_type="train_model", config=args)
     # config = wandb.config
-    config = vars(args)
+    config = args
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print("USING DEVICE", device)
@@ -56,7 +56,7 @@ def main():
         ),
     ).to(device)
 
-    model = Net(dict(config)).to(device)
+    model = Net(vars(config)).to(device)
     criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr)
 
