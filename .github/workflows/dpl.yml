@@ -13,10 +13,10 @@ jobs:
         uses: "google-github-actions/auth@v0"
         with:
           credentials_json: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
-      - run: gcloud auth configure-docker --quiet
+      - run: gcloud auth configure-docker --quiet eu-west4-docker.pkg.dev
       - name: Build and push
         run: |
-          dvc pull
+          dvc pull fit_model
           docker build -t europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }} .
           docker push europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }}
       - run: |
