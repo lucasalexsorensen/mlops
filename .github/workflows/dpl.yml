@@ -33,4 +33,5 @@ jobs:
             --display-name=masks-${{ github.sha }}
             --container-ports=[7080]
             --container-health-route=/ping
+            --region=europe-west4
             --container-predict-route=/predictions/masks
