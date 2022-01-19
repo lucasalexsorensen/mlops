@@ -4,10 +4,11 @@ on:
     branches: [master]
 
 jobs:
-  deploy-runner:
+  deploy-model:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: iterative/setup-dvc@v1
       - id: "auth"
         uses: "google-github-actions/auth@v0"
         with:
@@ -15,6 +16,7 @@ jobs:
       - run: gcloud auth configure-docker --quiet
       - name: Build and push
         run: |
+          dvc pull
           docker build -t europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }} .
           docker push europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }}
       - run: |
