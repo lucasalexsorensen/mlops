@@ -19,18 +19,16 @@ jobs:
         run: gcloud auth configure-docker --quiet eu-west4-docker.pkg.dev
       - name: DVC Pull
         run: dvc pull fit_model
+      # In this step, this action saves a list of existing images,
+      # the cache is created without them in the post run.
+      # It also restores the cache if it exists.
+      - uses: satackey/action-docker-layer-caching@v0.0.11
+        # Ignore the failure of a step and avoid terminating the job.
+        continue-on-error: true
       - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: true
-          tags: europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{github.sha}}
-          cache-from: type=registry,ref=europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{github.sha}}
-          cache-to: type=inline
-      # - name: Build and push
-      #   run: |
-      #     docker build -t europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }} .
-      #     docker push europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }}
+        run: |
+          docker build -t europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }} .
+          docker push europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{ github.sha }}
       - run: |
           gcloud ai models upload \
             --container-image-uri=europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{github.sha}} \
