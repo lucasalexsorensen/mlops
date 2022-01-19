@@ -8,17 +8,20 @@ jobs:
     steps:
       - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v2
-      - name: Deploy runner on EC2
+      - name: Deploy runner on GCP
         env:
           REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           GOOGLE_APPLICATION_CREDENTIALS_DATA: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
         run: |
           cml runner \
+              --name=trainer \
               --cloud=gcp \
               --cloud-region=eu-west \
               --cloud-type=e2-standard-2 \
               --cloud-spot \
-              --labels=cml-gpu
+              --labels=cml-gpu \
+              --resuse \
+              --idle-timeout=900
   train-model:
     needs: deploy-runner
     runs-on: [self-hosted, cml-gpu]
@@ -34,6 +37,10 @@ jobs:
           python-version: 3.8
           cache: "pip"
           cache-dependency-path: requirements/dev.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements/dev.txt
       - name: Test with pytest
         run: |
           pip install pytest
