@@ -33,14 +33,20 @@ jobs:
             --container-predict-route=/predictions/masks
       - name: Deploy model
         run: |
-          sleep: 10
-          echo $(gcloud ai models list \
+          sleep 10
+
+          gcloud ai models list \
+            --region=europe-west4 \
+            --project=dtumlops-project-mask-no-mask \
+            --filter=displayName:masks-${{ github.sha }} \
+            --format="value(name)"
+
+          MODEL_ID=$(gcloud ai models list \
             --region=europe-west4 \
             --project=dtumlops-project-mask-no-mask \
             --filter=displayName:masks-${{ github.sha }} \
             --format="value(name)" | sed -rn 's/.*\/models\/([0-9]+)/\1/p')
 
-          echo $MODEL_ID
 
           gcloud ai endpoints deploy-model 379938442001252352 \
             --region=europe-west4 \
