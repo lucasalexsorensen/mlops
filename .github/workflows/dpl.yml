@@ -30,8 +30,25 @@ jobs:
       - run: |
           gcloud ai models upload \
             --container-image-uri=europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve:${{github.sha}} \
-            --display-name=masks-${{ github.sha }}
-            --container-ports=[7080]
-            --container-health-route=/ping
-            --region=europe-west4
+            --display-name=masks-${{ github.sha }} \
+            --container-ports=7080 \
+            --container-health-route=/ping \
+            --region=europe-west4 \
+            --project=dtumlops-project-mask-no-mask \
             --container-predict-route=/predictions/masks
+
+          MODEL_ID=$(gcloud ai models list \
+            --region=europe-west4 \
+            --project=dtumlops-project-mask-no-mask \
+            --filter=displayName:masks-${{ github.sha }} \
+            --format="value(name)" | sed -rn 's/.*\/models\/([0-9]+)/\1/p')
+
+          gcloud ai endpoints deploy-model 379938442001252352 \
+            --region=europe-west4 \
+            --model=$MODEL_ID \
+            --display-name=masks \
+            --machine-type=n1-standard-2 \
+            --min-replica-count=1 \
+            --project=dtumlops-project-mask-no-mask \  
+            --max-replica-count=2 \
+            --traffic-split=0=100
