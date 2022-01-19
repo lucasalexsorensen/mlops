@@ -20,7 +20,7 @@ jobs:
               --cloud-type=e2-standard-2 \
               --cloud-spot \
               --labels=cml-gpu \
-              --resuse \
+              --reuse \
               --idle-timeout=900
   train-model:
     needs: deploy-runner
