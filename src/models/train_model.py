@@ -4,6 +4,7 @@ import kornia as K
 import torch.nn as nn
 import torchvision
 import torch
+
 import wandb
 import numpy as np
 import pandas as pd
@@ -20,7 +21,7 @@ def main():
     parser.add_argument("output_path", type=str)
     parser.add_argument("--lr", default=0.00015, type=float)
     parser.add_argument("--batch_size", default=4, type=int)
-    parser.add_argument("--embed_dim", default=225, type=int)
+    parser.add_argument("--embed_dim", default=200, type=int)
     parser.add_argument("--patch_size", default=4, type=int)
     parser.add_argument("--depth", default=5, type=int)
     parser.add_argument("--num_heads", default=16, type=int)
@@ -54,7 +55,7 @@ def main():
         ),
     ).to(device)
 
-    model = Net(dict(config)).to(device)
+    model = Net(vars(config)).to(device)
     criterion = nn.CrossEntropyLoss(reduction="sum")
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr)
 
@@ -62,7 +63,7 @@ def main():
     scores = np.array([])
     patience = 3
 
-    for epoch in range(10):
+    for epoch in range(3):
         print("========= EPOCH %d =========" % epoch)
         model.train()
         train_loss = 0
