@@ -30,7 +30,7 @@ def main():
     args = parser.parse_args()
     # wandb.init(project="mlops", job_type="train_model", config=args)
     # config = wandb.config
-    config = args
+    config = vars(args)
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print("USING DEVICE", device)
