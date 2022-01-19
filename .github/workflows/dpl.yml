@@ -14,7 +14,7 @@ jobs:
         with:
           credentials_json: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}"
       - name: Configure Docker auth
-        run: gcloud auth configure-docker --quiet eu-west4-docker.pkg.dev
+        run: gcloud auth configure-docker --quiet europe-west4-docker.pkg.dev
       - name: DVC Pull
         run: dvc pull fit_model
       # In this step, this action saves a list of existing images,
