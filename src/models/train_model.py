@@ -5,7 +5,7 @@ import torch.nn as nn
 import torchvision
 import torch
 
-# import wandb
+import wandb
 import numpy as np
 import pandas as pd
 from torchvision.transforms import ToTensor
@@ -21,16 +21,15 @@ def main():
     parser.add_argument("output_path", type=str)
     parser.add_argument("--lr", default=0.00015, type=float)
     parser.add_argument("--batch_size", default=4, type=int)
-    parser.add_argument("--embed_dim", default=225, type=int)
+    parser.add_argument("--embed_dim", default=200, type=int)
     parser.add_argument("--patch_size", default=4, type=int)
     parser.add_argument("--depth", default=5, type=int)
     parser.add_argument("--num_heads", default=16, type=int)
     parser.add_argument("--dropout_attn", default=0.2356, type=float)
     parser.add_argument("--dropout_rate", default=0.1056, type=float)
     args = parser.parse_args()
-    # wandb.init(project="mlops", job_type="train_model", config=args)
-    # config = wandb.config
-    config = args
+    wandb.init(project="mlops", job_type="train_model", config=args)
+    config = wandb.config
 
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print("USING DEVICE", device)
@@ -64,7 +63,7 @@ def main():
     scores = np.array([])
     patience = 3
 
-    for epoch in range(10):
+    for epoch in range(3):
         print("========= EPOCH %d =========" % epoch)
         model.train()
         train_loss = 0
@@ -79,7 +78,7 @@ def main():
             optimizer.step()
             train_loss += loss.item()
         print("Train loss: %.3f" % train_loss)
-        # wandb.log({"train_loss": train_loss})
+        wandb.log({"train_loss": train_loss})
 
         model.eval()
         val_accuracy = torchmetrics.Accuracy().to(device)
@@ -93,7 +92,7 @@ def main():
                 val_loss += loss.item()
         print("Validation loss: %.3f" % val_loss)
         print("Validation acc: %.3f" % val_accuracy.compute())
-        # wandb.log({"val_acc": val_accuracy.compute(), "val_loss": val_loss})
+        wandb.log({"val_acc": val_accuracy.compute(), "val_loss": val_loss})
 
         scores = np.append(scores, [val_loss])
 

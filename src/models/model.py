@@ -7,7 +7,7 @@ from typing import Dict, Any
 class Net(nn.Module):
     def __init__(self, config: Dict[str, Any] = {}):
         super(Net, self).__init__()
-        embed_dim: int = config.get("embed_dim", 210)
+        embed_dim: int = config.get("embed_dim", 225)
         patch_size: int = config.get("patch_size", 4)
         depth: int = config.get("depth", 5)
         num_heads: int = config.get("num_heads", 16)
