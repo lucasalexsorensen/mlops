@@ -48,4 +48,5 @@ jobs:
             --machine-type=n1-standard-2 \
             --min-replica-count=1 \
             --max-replica-count=2 \
-            --project=dtumlops-project-mask-no-mask
+            --project=dtumlops-project-mask-no-mask \
+            --traffic-split=0=100
