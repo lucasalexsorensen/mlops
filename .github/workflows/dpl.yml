@@ -34,7 +34,7 @@ jobs:
       - name: Deploy model
         run: |
           sleep: 10
-          MODEL_ID=$(gcloud ai models list \
+          echo $(gcloud ai models list \
             --region=europe-west4 \
             --project=dtumlops-project-mask-no-mask \
             --filter=displayName:masks-${{ github.sha }} \
