@@ -43,6 +43,6 @@ jobs:
             --display-name=masks-${{ github.sha }} \
             --machine-type=n1-standard-2 \
             --min-replica-count=1 \
-            --project=dtumlops-project-mask-no-mask \  
+            --project=dtumlops-project-mask-no-mask \
             --max-replica-count=2 \
             --traffic-split=0=100
