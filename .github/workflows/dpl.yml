@@ -39,8 +39,8 @@ jobs:
 
           gcloud ai endpoints deploy-model 379938442001252352 \
             --region=europe-west4 \
-            --model=$MODEL_ID \
-            --display-name=masks-${{ github.sha }} \
+            --model="${MODEL_ID}" \
+            --display-name="masks-${{ github.sha }}" \
             --machine-type=n1-standard-2 \
             --min-replica-count=1 \
             --project=dtumlops-project-mask-no-mask \
