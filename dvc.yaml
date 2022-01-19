@@ -13,7 +13,7 @@ stages:
       - src/data/make_dataset.py
     outs:
       - data/processed
-  
+
   fit_model:
     cmd: python -m src.models.train_model data/processed/train data/processed/validation outputs/model.pth
     deps:
@@ -36,9 +36,3 @@ stages:
     metrics:
       - outputs/metrics.json:
           cache: false
-
-  build_image:
-    cmd: docker build -t europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve .
-    deps:
-      - outputs/model.pth
-      - src/models/model_handler.py
