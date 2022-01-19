@@ -9,7 +9,7 @@ COPY requirements/serve.txt requirements.txt
 
 USER root
 RUN torch-model-archiver \
-    --model-name=mask \
+    --model-name=masks \
     --version=1.0 \
     --model-file=src/models/model.py \
     --serialized-file=model.pth \
@@ -25,4 +25,4 @@ CMD ["torchserve", \
     "--start", \
     "--ts-config=src/models/config.properties", \
     "--models", \
-    "mask=mask.mar"]
+    "masks=masks.mar"]
