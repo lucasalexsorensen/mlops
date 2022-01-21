@@ -21,7 +21,7 @@ def main():
     parser.add_argument("output_path", type=str)
     parser.add_argument("--lr", default=0.00015, type=float)
     parser.add_argument("--batch_size", default=4, type=int)
-    parser.add_argument("--embed_dim", default=200, type=int)
+    parser.add_argument("--embed_dim", default=150, type=int)
     parser.add_argument("--patch_size", default=4, type=int)
     parser.add_argument("--depth", default=5, type=int)
     parser.add_argument("--num_heads", default=16, type=int)
