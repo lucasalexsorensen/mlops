@@ -31,8 +31,8 @@ stages:
       outputs/model.pth
     deps:
     - path: Dockerfile
-      md5: 69604440f093f8505e33f126f52bcb94
-      size: 660
+      md5: 1de36cd220887417800c5ca0ed385461
+      size: 663
     - path: data/processed/train
       md5: fc0dbd90486ac4f17ea9d0b0ba1b1098.dir
       size: 5254924
@@ -48,11 +48,11 @@ stages:
       md5: 343ed433a1a2724367d6c386990c2a86
       size: 1080
     - path: src/models/train_model.py
-      md5: 49b7a30bdf60ef84a63c1a04e57d24d9
+      md5: 714352e6653b29c865d45b93e8c6091f
       size: 3818
     outs:
     - path: outputs/model.pth
-      md5: a2dd82580b0adcba54d7ab7fd31652a0
+      md5: 89f28df7f05cb0ef1010936c3339fe7d
       size: 6411496
   evaluate_model:
     cmd: python -m src.models.predict_model outputs/model.pth data/processed/test
@@ -62,7 +62,7 @@ stages:
       size: 371771
       nfiles: 47
     - path: outputs/model.pth
-      md5: a2dd82580b0adcba54d7ab7fd31652a0
+      md5: 89f28df7f05cb0ef1010936c3339fe7d
       size: 6411496
     - path: src/models/model.py
       md5: 343ed433a1a2724367d6c386990c2a86
@@ -72,8 +72,8 @@ stages:
       size: 1380
     outs:
     - path: outputs/metrics.json
-      md5: 0223dae6433317103b69c3158fd8e103
-      size: 36
+      md5: 2b5794276172cb68e116c35a28de8b75
+      size: 37
   build_image:
     cmd: docker build -t europe-west4-docker.pkg.dev/dtumlops-project-mask-no-mask/dtu-mlops/serve
       .
